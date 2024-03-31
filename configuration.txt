@@ -1,0 +1,38 @@
+TODO:
+External toolchain
+CCache
+Initramfs
+kompresja dla cpio gzip
+Haslo do roota
+
+Target packages:
+dropbear
+gesftpserver
+ntp
+wpa_supplicant z  nl80211 
+brcmfmac i brcmfac wifi
+ca-certificates
+python3
+nano 
+
+(1500M) exact size  dla ext2/3/4 root filesystem 
+board/raspberrypi4-64/genimage.cfg.in tutaj size na 256M
+
+I am configuring builtroot linux on raspberry pi 4. I use busybox
+After boot up if i type these commands
+modprobe brcmfmac
+wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
+udhcpc -i wlan0 
+
+network={
+ssid="5G-Vectra-WiFi-2B6D88"
+psk=""
+}
+
+
+ca-certificates (what it is and ssl/tls handshake)
+
+
+#!/bin/s
+
+added ssh auth, but it's not suitable for first boot - it requires /mnt/dropbear

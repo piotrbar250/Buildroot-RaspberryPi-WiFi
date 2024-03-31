@@ -1,0 +1,5 @@
+# This is template only. Before compilation you need to remove .template extension
+network={
+    ssid=""
+    psk=""
+}

@@ -7,15 +7,15 @@
 
 !.gitignore
 
-!buildroot-2023.11.1
-!buildroot-2023.11.1/.config
-!buildroot-2023.11.1/board
-!buildroot-2023.11.1/board/raspberrypi
-!buildroot-2023.11.1/board/raspberrypi/genimage.cfg.in
+!buildroot
+!buildroot/.config
+!buildroot/board
+!buildroot/board/raspberrypi
+!buildroot/board/raspberrypi/genimage.cfg.in
 
-!buildroot-2023.11.1/overlays
-!buildroot-2023.11.1/overlays/**
-buildroot-2023.11.1/overlays/etc/wpa_supplicant/wpa_supplicant.conf
+!buildrootoverlays
+!buildroot/overlays/**
+buildroot/overlays/etc/wpa_supplicant/wpa_supplicant.conf
 
 !scripts
 !scripts/**

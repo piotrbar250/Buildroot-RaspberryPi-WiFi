@@ -1,0 +1,55 @@
+#!/bin/sh
+case "$1" in
+  start)
+        echo "Configuring wifi"
+        
+        if [ ! -f "/mnt/wpa_supplicant/wpa_supplicant.conf" ]; then
+        	mkdir -p /mnt/wpa_supplicant
+		cp /etc/wpa_supplicant/wpa_supplicant.conf /mnt/wpa_supplicant/wpa_supplicant.conf
+	fi
+	
+	rm /etc/wpa_supplicant/wpa_supplicant.conf
+	ln -s /mnt/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
+        
+	python3 /etc/wifi/start_wifi.py
+        ;;
+  stop)
+        ;;
+  *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+        ;;
+esac
+exit 0
+
+#!/bin/sh
+case "$1" in
+  start)
+        echo "Mounting mmcblk0p1"
+	mount /dev/mmcblk0p1 /mnt
+		
+	if [ ! -d "/mnt/dropbear" ]; then
+		cp -r /etc/dropbear /mnt
+	fi
+	
+	rm -rf /etc/dropbear
+	ln -s /mnt/dropbear /etc/dropbear
+
+	if [ ! -f "mnt/dropbear/authorized_keys" ]; then
+		touch /mnt/dropbear/authorized_keys
+	fi
+	
+	if [ ! -d "/root/.ssh" ]; then
+		mkdir /root/.ssh
+	fi
+	ln -s /mnt/dropbear/authorized_keys /root/.ssh/authorized_keys
+	;;
+  stop)
+        ;;
+  *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+        ;;
+esac
+exit 0
+

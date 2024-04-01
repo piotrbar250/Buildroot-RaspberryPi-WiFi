@@ -13,7 +13,7 @@
 !buildroot/board/raspberrypi
 !buildroot/board/raspberrypi/genimage.cfg.in
 
-!buildrootoverlays
+!buildroot/overlays
 !buildroot/overlays/**
 buildroot/overlays/etc/wpa_supplicant/wpa_supplicant.conf
 
